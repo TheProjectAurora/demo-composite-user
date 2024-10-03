@@ -1,0 +1,14 @@
+name: WORKFLOW Matrix Strategy Shared Workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  hello-world:
+    strategy:
+      matrix:
+        environment: [ 'dev', 'prod', 'ro-prod', 'staging' ]    
+    uses: TheProjectAurora/demo-composite-action/.github/workflows/matrix-wf.yaml@main
+    with:
+        environment: ${{ matrix.environment }}
+    secrets: inherit

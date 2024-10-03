@@ -1,4 +1,4 @@
-name: Matrix Strategy Shared Workflow
+name: Matrix Strategy Composed Action
 
 on:
   workflow_dispatch:
