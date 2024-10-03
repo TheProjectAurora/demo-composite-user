@@ -11,8 +11,8 @@ jobs:
       - name: Get MD5 of JFROG
         id: md5
         uses: TheProjectAurora/demo-composite-action/.github/actions/output-demo@main
-        with:          
-          JFROG_PASSWORD: ${{ secrets.JFROG_PASSWORD }}
+        #with:          
+        #  JFROG_PASSWORD: ${{ secrets.JFROG_PASSWORD }}
       - name: vars context
         run: |
             echo "The steps.md5 context is:" >> $GITHUB_STEP_SUMMARY
