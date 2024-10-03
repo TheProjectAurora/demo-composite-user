@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: dev
     steps:
-      - name: Matrix run
+      - name: GitHub context
         run: |
             echo "The github context is:" >> $GITHUB_STEP_SUMMARY
             echo '```json' >> $GITHUB_STEP_SUMMARY
@@ -16,3 +16,11 @@ jobs:
             ${{ toJson(github) }}
             EOF
             echo '```' >> $GITHUB_STEP_SUMMARY
+      - name: Env context
+        run: |
+            echo "The env context is:" >> $GITHUB_STEP_SUMMARY
+            echo '```json' >> $GITHUB_STEP_SUMMARY
+            cat <<EOF  >> $GITHUB_STEP_SUMMARY
+            ${{ toJson(env) }}
+            EOF
+            echo '```' >> $GITHUB_STEP_SUMMARY  
