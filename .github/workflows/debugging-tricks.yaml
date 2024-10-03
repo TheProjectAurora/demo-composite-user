@@ -1,4 +1,4 @@
-name: Matrix Strategy Composed Action
+name: Debugging Action
 
 on:
   workflow_dispatch:
