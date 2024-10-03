@@ -11,5 +11,7 @@ jobs:
         run: |
             echo "The github context is:" >> $GITHUB_STEP_SUMMARY
             echo '```json' >> $GITHUB_STEP_SUMMARY
-            echo "${{ toJson(github) }}" >> $GITHUB_STEP_SUMMARY
+            cat <<EOF  >> $GITHUB_STEP_SUMMARY
+            ${{ toJson(github) }}
+            EOF
             echo '```' >> $GITHUB_STEP_SUMMARY
