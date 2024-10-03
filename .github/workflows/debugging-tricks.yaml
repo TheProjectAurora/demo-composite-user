@@ -1,0 +1,15 @@
+name: Matrix Strategy Composed Action
+
+on:
+  workflow_dispatch:
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest    
+    steps:
+      - name: Matrix run
+        run: |
+            echo "The github context is:" >> $GITHUB_STEP_SUMMARY
+            echo '```json' >> $GITHUB_STEP_SUMMARY
+            echo "${{ toJson(github) }}" >> $GITHUB_STEP_SUMMARY
+            echo '```' >> $GITHUB_STEP_SUMMARY
