@@ -1,0 +1,23 @@
+name: Output Action
+
+on:
+  workflow_dispatch:
+
+jobs:
+  hello-world:
+    runs-on: ubuntu-latest
+    environment: dev
+    steps:
+      - name: Get MD5 of JFROG
+        id: md5
+        uses: TheProjectAurora/demo-composite-action/.github/actions/output-demo@main
+        with:          
+          JFROG_PASSWORD: ${{ secrets.JFROG_PASSWORD }}
+      - name: vars context
+        run: |
+            echo "The steps.md5 context is:" >> $GITHUB_STEP_SUMMARY
+            echo '```json' >> $GITHUB_STEP_SUMMARY
+            cat <<EOF  >> $GITHUB_STEP_SUMMARY
+            ${{ toJson(steps.md5) }}
+            EOF
+            echo '```' >> $GITHUB_STEP_SUMMARY  

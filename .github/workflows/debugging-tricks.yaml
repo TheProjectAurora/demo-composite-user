@@ -16,11 +16,11 @@ jobs:
             ${{ toJson(github) }}
             EOF
             echo '```' >> $GITHUB_STEP_SUMMARY
-      - name: Env context
+      - name: vars context
         run: |
-            echo "The env context is:" >> $GITHUB_STEP_SUMMARY
+            echo "The vars context is:" >> $GITHUB_STEP_SUMMARY
             echo '```json' >> $GITHUB_STEP_SUMMARY
             cat <<EOF  >> $GITHUB_STEP_SUMMARY
-            ${{ toJson(env) }}
+            ${{ toJson(vars) }}
             EOF
             echo '```' >> $GITHUB_STEP_SUMMARY  
